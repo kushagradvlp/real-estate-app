@@ -1,23 +1,80 @@
 import React, { useState } from "react";
 import { Send, File, Copy, RefreshCw, ThumbsUp, ThumbsDown, Mic, Image, MoreVertical, Trash2 } from "lucide-react";
 import App from "../App";
-import "../App.css";
+//import "../App.css";
+
 const Chatbot = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
 
-  const sendMessage = () => {
+  const sendMessage = async () => {
     if (!input.trim()) return;
-
-    const newMessages = [...messages, { text: input, user: "user", timestamp: new Date().toLocaleTimeString() }];
-    setMessages(newMessages);
+  
+    // Add the user's message to the chat
+    const userMsg = { text: input, user: "user", timestamp: new Date().toLocaleTimeString() };
+    setMessages((prevMessages) => [...prevMessages, userMsg]);
+    
+    // Save the current input before clearing
+    const messageToSend = input;
     setInput("");
-
-    // Simulating chatbot response
-    setTimeout(() => {
-      setMessages([...newMessages, { text: "I'm here to help!", user: "bot", timestamp: new Date().toLocaleTimeString() }]);
-    }, 1000);
+  
+    try {
+      const response = await fetch("http://localhost:5000/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message: messageToSend }),
+      });
+  
+      const data = await response.json();
+  
+      if (!response.ok) {
+        // If the backend returns an error, display it in the chat
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          {
+            text: data.error || "An error occurred.",
+            user: "bot",
+            timestamp: new Date().toLocaleTimeString(),
+          },
+        ]);
+      } else {
+        // Display the bot's reply
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          {
+            text: data.reply,
+            user: "bot",
+            timestamp: new Date().toLocaleTimeString(),
+          },
+        ]);
+      }
+    } catch (error) {
+      // Handle any network errors
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        {
+          text: "Network error: " + error.message,
+          user: "bot",
+          timestamp: new Date().toLocaleTimeString(),
+        },
+      ]);
+    }
   };
+  
+  //const sendMessage = () => {
+  //  if (!input.trim()) return;
+//
+  //  const newMessages = [...messages, { text: input, user: "user", timestamp: new Date().toLocaleTimeString() }];
+  //  setMessages(newMessages);
+  //  setInput("");
+//
+  //  // Simulating chatbot response
+  //  setTimeout(() => {
+  //    setMessages([...newMessages, { text: "I'm here to help!", user: "bot", timestamp: new Date().toLocaleTimeString() }]);
+  //  }, 1000);
+  //};
 
   const clearMessages = () => {
     setMessages([]);
