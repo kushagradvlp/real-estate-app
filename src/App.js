@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Navbar, Home, Listings } from "./components/Navbar";
 import PropertyDetails from "./components/PropertyDetails";
 import Chatbot from "./components/Chatbot";
+import Auth from "./components/UserAuthentication";
+
 
 const App = () => {
   return (
@@ -14,7 +16,7 @@ const App = () => {
         <Route path="/property/:id" element={<PropertyDetails />} />
         <Route path="/chatbot" element={<Chatbot />} />
         <Route path="/dashboard" element={<h1>Dashboard</h1>} />
-        <Route path="/login" element={<h1>Login Page</h1>} />
+        <Route path="/login" element={<Auth />} />
       </Routes>
     </Router>
   );

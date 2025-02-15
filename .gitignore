@@ -47,3 +47,4 @@ yarn-error.log*
 venv
 *settings*
 yarn.lock
+backend/src/instance/users.db
