@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Navbar, Home, Listings } from "./components/Navbar";
-import PropertyDetails from "./components/PropertyDetails";
-import Chatbot from "./components/Chatbot";
-import Auth from "./components/UserAuthentication";
+import { Navbar, Home, Listings } from "./components/Navbar.jsx";
+import PropertyDetails from "./components/PropertyDetails.jsx";
+import Chatbot from "./components/Chatbot.jsx";
+import Auth from "./components/UserAuthentication.jsx";
 
 
 const App = () => {

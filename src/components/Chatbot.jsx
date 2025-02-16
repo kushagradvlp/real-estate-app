@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Send, File, Copy, RefreshCw, ThumbsUp, ThumbsDown, Mic, Image, MoreVertical, Trash2 } from "lucide-react";
-import App from "../App";
+import App from "../App.jsx";
 //import "../App.css";
 
 const Chatbot = () => {
