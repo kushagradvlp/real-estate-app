@@ -4,6 +4,7 @@ import { Navbar, Home, Listings } from "./components/Navbar.jsx";
 import PropertyDetails from "./components/PropertyDetails.jsx";
 import Chatbot from "./components/Chatbot.jsx";
 import Auth from "./components/UserAuthentication.jsx";
+import './index.css'; // Your global styles, including Tailwind
 
 
 const App = () => {

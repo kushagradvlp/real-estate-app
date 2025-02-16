@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -65,4 +67,72 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+
+/* Global Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9fafb; /* Light gray background */
+  margin: 0;
+  padding: 0;
+}
+
+/* Chat Container */
+.chat-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Chat Bubbles */
+.user-message {
+  background-color: #3b82f6; /* Blue for user */
+  color: white;
+  padding: 12px 16px;
+  border-radius: 18px;
+  max-width: 75%;
+  align-self: flex-end;
+}
+
+.bot-message {
+  background-color: #e5e7eb; /* Light gray for AI */
+  color: black;
+  padding: 12px 16px;
+  border-radius: 18px;
+  max-width: 75%;
+  align-self: flex-start;
+}
+
+/* Input Field */
+.chat-input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.chat-input:focus {
+  border-color: #3b82f6; /* Blue focus */
+}
+
+/* Buttons */
+.chat-button {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.chat-button:hover {
+  background-color: #2563eb;
 }
