@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Auth = ({ isLogin }) => {
+const Auth = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [isLogin, setIsLogin] = useState(true);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -52,10 +53,18 @@ const Auth = ({ isLogin }) => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <button className="bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600 transition">
+          <button type="submit" className="bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600 transition">
             {isLogin ? "Login" : "Sign Up"}
           </button>
         </form>
+        <div className="text-center mt-4">
+          <button
+            className="text-blue-500 hover:underline"
+            onClick={() => setIsLogin(!isLogin)}
+          >
+            {isLogin ? "Don't have an account? Sign up" : "Already have an account? Login"}
+          </button>
+        </div>
       </div>
     </div>
   );

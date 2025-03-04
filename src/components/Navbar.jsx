@@ -5,16 +5,59 @@ import homeImage1 from "../assets/images/home_image_1.jpg";
 import homeImage2 from "../assets/images/home_image_2.jpg";
 import homeImage3 from "../assets/images/home_image_3.jpg";
 const imageMap = [homeImage1, homeImage2, homeImage3];
+import { Search} from "lucide-react";
+
 
 
 const Home = () => {
   return (
-    <div className="text-center bg-orange-400 text-white py-20 px-6">
-      <h1 className="text-5xl font-bold">The Smarter, Faster, Dreamier Home Search</h1>
-      <p className="text-xl mt-4">Find your perfect home with RealEstateAI</p>
-      <div className="hidden md:flex space-x-20 text-xl font-medium text-gray-700">
-        <Link to="/listings" className="bg-white text-orange-600 px-8 py-4 rounded-lg font-semibold shadow-md hover:bg-gray-100">Homes for Sale</Link>
-        <Link to="/prices" className="bg-white text-orange-600 px-8 py-4 rounded-lg font-semibold shadow-md hover:bg-gray-100">Sold Home Prices</Link>
+    <div className="flex flex-col items-center w-full min-h-screen bg-gray-100 text-gray-900">
+      {/* Hero Section */}
+      <div className="w-full bg-orange-400 text-white py-32 px-8 text-center">
+        <h1 className="text-6xl font-bold leading-tight">Find Your Dream Home with AI</h1>
+        <p className="text-2xl mt-6 max-w-3xl mx-auto">
+          Our AI-powered real estate chatbot helps you find the perfect home. Just tell us what you’re looking for, and we'll handle the rest!
+        </p>
+        <div className="mt-10 flex justify-center">
+          <input
+            type="text"
+            placeholder="Search: '2 bed apartment with big living room'"
+            className="w-2/3 md:w-1/2 px-6 py-4 rounded-l-lg text-gray-900 border-none focus:ring-2 focus:ring-orange-500 outline-none"
+          />
+          <button className="bg-white text-orange-600 px-6 py-4 rounded-r-lg font-semibold shadow-md hover:bg-gray-100">
+            <Search size={24} />
+          </button>
+        </div>
+      </div>
+
+      {/* Features Section */}
+      <div className="w-full max-w-6xl mt-16 px-8 text-center">
+        <h2 className="text-4xl font-bold">Why Choose Our AI-Powered Chatbot?</h2>
+        <p className="text-lg text-gray-600 mt-4">Experience the future of real estate search with AI.</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10">
+          <div className="bg-white p-8 shadow-lg rounded-lg">
+            <h3 className="text-2xl font-semibold text-orange-600">Personalized Listings</h3>
+            <p className="mt-3 text-gray-700">Tell us what you want, and our AI finds the best matches instantly.</p>
+          </div>
+          <div className="bg-white p-8 shadow-lg rounded-lg">
+            <h3 className="text-2xl font-semibold text-orange-600">Instant Search</h3>
+            <p className="mt-3 text-gray-700">No more scrolling! Just describe your ideal home and get results.</p>
+          </div>
+          <div className="bg-white p-8 shadow-lg rounded-lg">
+            <h3 className="text-2xl font-semibold text-orange-600">Live Chat Support</h3>
+            <p className="mt-3 text-gray-700">Need help? Our AI chatbot answers all your real estate questions.</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Call to Action */}
+      <div className="w-full bg-orange-400 text-white py-20 text-center mt-16">
+        <h2 className="text-4xl font-bold">Start Your Search Today</h2>
+        <p className="text-lg mt-4">Click below to find your dream home with AI assistance.</p>
+        <div className="mt-6 flex justify-center space-x-6">
+          <Link to="/listings" className="bg-white text-orange-600 px-8 py-4 rounded-lg font-semibold shadow-md hover:bg-gray-100">Browse Listings</Link>
+          <Link to="/chatbot" className="bg-white text-orange-600 px-8 py-4 rounded-lg font-semibold shadow-md hover:bg-gray-100">Chat with AI</Link>
+        </div>
       </div>
     </div>
   );
