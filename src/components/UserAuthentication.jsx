@@ -53,7 +53,11 @@ const Auth = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <button type="submit" className="bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600 transition">
+          <button 
+            type="submit" 
+            className={`p-3 rounded-md transition font-semibold ${email && password ? 'bg-blue-500 text-white hover:bg-blue-600' : 'bg-gray-400 text-gray-700 cursor-not-allowed opacity-50'}`}
+            disabled={!email || !password}
+          >
             {isLogin ? "Login" : "Sign Up"}
           </button>
         </form>
