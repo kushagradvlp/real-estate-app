@@ -24,26 +24,48 @@ RealEstateAI is a full-stack web application that uses AI-powered search to help
 ## 📂 Project Structure
 ```
 real-estate-app/
-├── backend/                 # Flask backend with user auth APIs
-│   ├── auth_backend.py
-│   └── users.db
+├── backend/
+│   ├── Dockerfile
+│   ├── requirements.txt
+│   ├── settings.json
+│   ├── venv/                     # Virtual environment (optional)
+│   └── src/
+│       ├── auth_backend.py       # Flask backend for user auth
+│       ├── chatbot.py            # Flask API for chatbot endpoint
+│       └── instance/
 │
-├── frontend/                # React app using Vite
+├── frontend/
+│   ├── Dockerfile
+│   ├── index.html
+│   ├── package.json
+│   ├── vite.config.mjs
+│   ├── tailwind.config.js
 │   ├── public/
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── Chatbot.jsx
-│   │   │   ├── Navbar.jsx
-│   │   │   └── Auth.jsx
-│   │   ├── App.jsx
-│   │   └── index.css
-│   └── tailwind.config.js
+│   └── src/
+│       ├── App.jsx
+│       ├── App.css
+│       ├── index.jsx
+│       ├── index.css
+│       ├── main.jsx
+│       ├── logo.svg
+│       ├── components/
+│       │   ├── Chatbot.jsx
+│       │   ├── Navbar.jsx
+│       │   └── Auth.jsx
+│       └── assets/
+├── docker-compose.yml
 └── README.md
 ```
 
 ---
 
 ## 🧑‍💻 How to Run
+
+### 🐳 Docker Setup (Recommended)
+Run everything with a single command:
+```bash
+docker-compose up --build
+```
 
 ### 🔧 Backend Setup
 ```bash
