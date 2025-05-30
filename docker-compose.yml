@@ -1,0 +1,31 @@
+version: '3.9'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:5173"
+    depends_on:
+      - auth
+      - chat
+
+  auth:
+    build:
+      context: ./backend
+    working_dir: /app/src
+    command: ["python", "auth_backend.py"]
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/app
+
+  chat:
+    build:
+      context: ./backend
+    working_dir: /app/src
+    command: ["python", "chatbot.py"]
+    ports:
+      - "5001:5001"
+    volumes:
+      - ./backend:/app
