@@ -67,16 +67,16 @@ Run everything with a single command:
 docker-compose up --build
 ```
 
-### 🔧 Backend Setup
+### 🔧 Manual Backend Setup (Optional)
 ```bash
 cd backend
 python -m venv venv
 source venv/bin/activate   # or venv\Scripts\activate on Windows
 pip install -r requirements.txt
-python auth_backend.py
+python src/auth_backend.py
 ```
 
-### 💻 Frontend Setup
+### 💻 Manual Frontend Setup (Optional)
 ```bash
 cd frontend
 npm install
